@@ -33,10 +33,9 @@ namespace ReviBank
             }
             
         }
-
-        public void ExibirDados()
+        public override string ToString()
         {
-            Console.WriteLine($"{Nome}\n{NumeroConta}\n{Saldo}");
+            return ($"Titular: {Nome}\tConta: {NumeroConta}\tSaldo: {Saldo}");
         }
     }
 }

@@ -5,8 +5,8 @@ namespace ReviBank
     public class Conta
     {
         public string Nome;
-        public string NumeroConta;
-        public double Saldo;
+        public string NumeroConta { get; private set; }
+        public double Saldo { get; private set; }
 
         public Conta(string nome, string numeroConta)
         {
@@ -26,7 +26,12 @@ namespace ReviBank
 
         public void Sacar(double valor)
         {
-            Saldo -= valor + 5.00;
+            if(valor > Saldo) {
+                Console.WriteLine($"Saldo insuficiente, você só tem R$ {Saldo}");
+            }else {
+                Saldo -= valor + 5.00;
+            }
+            
         }
 
         public void ExibirDados()

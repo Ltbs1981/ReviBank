@@ -4,7 +4,7 @@ namespace ReviBank
 {
     public class Conta
     {
-        public string Nome;
+        public string Nome { get; set; }
         public string NumeroConta { get; private set; }
         public double Saldo { get; private set; }
 
@@ -26,16 +26,19 @@ namespace ReviBank
 
         public void Sacar(double valor)
         {
-            if(valor > Saldo) {
-                Console.WriteLine($"Saldo insuficiente, você só tem R$ {Saldo}");
-            }else {
-                Saldo -= valor + 5.00;
+            if (valor + 5.00 > Saldo)
+            {
+                Console.WriteLine("Saldo insuficiente para saque.");
             }
-            
+            else
+            {
+                Saldo -= valor + 5.00; // taxa de saque
+            }
         }
+
         public override string ToString()
         {
-            return ($"Titular: {Nome}\tConta: {NumeroConta}\tSaldo: {Saldo}");
+            return $"Titular: {Nome}\tConta: {NumeroConta}\tSaldo: {Saldo:F2}";
         }
     }
 }

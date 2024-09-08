@@ -43,7 +43,7 @@ class Program
                     Console.WriteLine("Digite o valor do saque:");
                     double valor = double.Parse(Console.ReadLine());
                     conta01.Sacar(valor);
-                    Console.WriteLine("Saque realizado.");
+
                     break;
                 case 3:
                     Console.WriteLine("Digite o valor do depósito:");

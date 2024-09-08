@@ -26,19 +26,20 @@ namespace ReviBank
 
         public void Sacar(double valor)
         {
-            if (valor + 5.00 > Saldo)
+            if (valor > Saldo)
             {
                 Console.WriteLine("Saldo insuficiente para saque.");
             }
             else
             {
-                Saldo -= valor + 5.00; // taxa de saque
+                Console.WriteLine($"O valor de R$ {valor} foi retirado da sua conta");
+                Saldo -= valor + 5.00; 
             }
         }
 
         public override string ToString()
         {
-            return $"Titular: {Nome}\tConta: {NumeroConta}\tSaldo: {Saldo:F2}";
+            return $"Titular: {Nome}\t Conta: {NumeroConta}\t Saldo: {Saldo:F2}";
         }
     }
 }

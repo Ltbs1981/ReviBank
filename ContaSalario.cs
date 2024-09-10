@@ -10,16 +10,18 @@ namespace ReviBank
         public ContaSalario(string nome, string numeroConta, string nomeEmpresa) : base(nome, numeroConta)
         {
             NomeEmpresa = nomeEmpresa;
+            Emprestimo = 10000;
         }
 
         public ContaSalario(string nome, string numeroConta, double saldo, string nomeEmpresa) : base(nome, numeroConta, saldo)
         {
             NomeEmpresa = nomeEmpresa;
+            Emprestimo = 10000;
         }
 
         public override string ToString()
         {
-            return $"Titular: {Nome}\t Conta: {NumeroConta}\t Saldo: {Saldo:F2}\t Empresa: {NomeEmpresa}";
+            return $"Titular: {Nome}\n Número da Conta: {NumeroConta}\n Saldo: {Saldo:F2}\n Empresa: {NomeEmpresa}\n Disponível para Empréstimo: {Emprestimo}";
         }
     }
 }

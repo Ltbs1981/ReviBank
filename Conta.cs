@@ -39,7 +39,7 @@ namespace ReviBank
 
         public override string ToString()
         {
-            return $"Titular: {Nome}\t Conta: {NumeroConta}\t Saldo: {Saldo:F2}";
+            return $"Titular: {Nome}\t Número da Conta: {NumeroConta}\t Saldo: {Saldo:F2}";
         }
     }
 }

@@ -5,23 +5,29 @@ class Program
 {
     public static void Main(string[] args)
     {
+        Console.Clear();
         Console.WriteLine("Digite o nome do titular:");
         string nome = Console.ReadLine();
 
-        Console.WriteLine("Digite o número da conta:");
+        Console.Clear();
+
+        Console.WriteLine("Digite os dígitos da conta:");
         string numeroConta = Console.ReadLine();
 
         Conta conta;
 
+        Console.Clear();
         Console.WriteLine("Escolha o tipo de conta:\n 1. Conta Normal\n 2. Conta Salário\n 3. Conta Prime");
         int tipoConta = int.Parse(Console.ReadLine());
 
+        Console.Clear();
         Console.WriteLine("Deseja depositar um saldo inicial na conta? (1 para sim, 2 para não)");
         int acao = int.Parse(Console.ReadLine());
 
         double saldoInicial = 0;
         if (acao == 1)
         {
+            Console.Clear();
             Console.WriteLine("Digite o valor inicial:");
             saldoInicial = double.Parse(Console.ReadLine());
         }
@@ -32,29 +38,35 @@ class Program
                 conta = acao == 1 ? new Conta(nome, numeroConta, saldoInicial) : new Conta(nome, numeroConta);
                 break;
             case 2:
+                Console.Clear();
                 Console.WriteLine("Digite o nome da empresa:");
                 string nomeEmpresa = Console.ReadLine();
                 conta = acao == 1 ? new ContaSalario(nome, numeroConta, saldoInicial, nomeEmpresa) : new ContaSalario(nome, numeroConta, nomeEmpresa);
                 break;
             case 3:
+                Console.Clear();
                 Console.WriteLine("Digite os pontos em milhas:");
                 int pontosMilhas = int.Parse(Console.ReadLine());
                 conta = acao == 1 ? new ContaPrime(nome, numeroConta, saldoInicial, pontosMilhas) : new ContaPrime(nome, numeroConta, pontosMilhas);
                 break;
             default:
-                conta = new Conta(nome, numeroConta); 
+                conta = new Conta(nome, numeroConta);
+                Console.Clear();
                 Console.WriteLine("-Conta criada com sucesso-");
                 break;
         }
 
+        Console.Clear();
         Console.WriteLine("-Conta criada com sucesso-");
 
         while (acao != 4)
         {
+            Console.Clear();
             Console.WriteLine(conta.ToString());
             Console.WriteLine("Escolha a sua operação:\n 1. Consultar saldo\n 2. Fazer um saque\n 3. Fazer um depósito\n 4. Sair");
             acao = int.Parse(Console.ReadLine());
 
+            Console.Clear();
             switch (acao)
             {
                 case 1:

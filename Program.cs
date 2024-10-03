@@ -10,14 +10,13 @@ class Program
         string nome = Console.ReadLine();
 
         Console.Clear();
-
         Console.WriteLine("Digite os dígitos da conta:");
         string numeroConta = Console.ReadLine();
 
         Conta conta;
 
         Console.Clear();
-        Console.WriteLine("Escolha o tipo de conta:\n 1. Conta Normal\n 2. Conta Salário\n 3. Conta Prime");
+        Console.WriteLine("Escolha o tipo de conta:\n 1. Conta Salário\n 2. Conta Prime");
         int tipoConta = int.Parse(Console.ReadLine());
 
         Console.Clear();
@@ -35,25 +34,21 @@ class Program
         switch (tipoConta)
         {
             case 1:
-                conta = acao == 1 ? new Conta(nome, numeroConta, saldoInicial) : new Conta(nome, numeroConta);
-                break;
-            case 2:
                 Console.Clear();
                 Console.WriteLine("Digite o nome da empresa:");
                 string nomeEmpresa = Console.ReadLine();
                 conta = acao == 1 ? new ContaSalario(nome, numeroConta, saldoInicial, nomeEmpresa) : new ContaSalario(nome, numeroConta, nomeEmpresa);
                 break;
-            case 3:
+            case 2:
                 Console.Clear();
                 Console.WriteLine("Digite os pontos em milhas:");
                 int pontosMilhas = int.Parse(Console.ReadLine());
                 conta = acao == 1 ? new ContaPrime(nome, numeroConta, saldoInicial, pontosMilhas) : new ContaPrime(nome, numeroConta, pontosMilhas);
                 break;
             default:
-                conta = new Conta(nome, numeroConta);
                 Console.Clear();
-                Console.WriteLine("-Conta criada com sucesso-");
-                break;
+                Console.WriteLine("Tipo de conta inválido.");
+                return;
         }
 
         Console.Clear();
@@ -74,13 +69,13 @@ class Program
                     break;
                 case 2:
                     Console.WriteLine("Digite o valor do saque:");
-                    double valorSaque = double.Parse(Console.ReadLine());
-                    conta.Sacar(valorSaque);
+                    double valor = double.Parse(Console.ReadLine());
+                    conta.Sacar(valor);
                     break;
                 case 3:
-                    Console.WriteLine("Digite o valor do depósito:");
-                    double valorDeposito = double.Parse(Console.ReadLine());
-                    conta.Depositar(valorDeposito);
+                    Console.WriteLine("Digite o valor do depósito: ");
+                    valor = double.Parse(Console.ReadLine());
+                    conta.Depositar(valor);
                     Console.WriteLine("Depósito realizado.");
                     break;
                 case 4:

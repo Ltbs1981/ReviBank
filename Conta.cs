@@ -6,7 +6,7 @@ namespace ReviBank
     {
         public abstract string Nome { get; set; }
         public abstract string NumeroConta { get; protected set; }
-        public double Saldo { get; protected set; }
+        public abstract double  Saldo { get; protected set; }
 
         public Conta(string nome, string numeroConta)
         {

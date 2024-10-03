@@ -2,11 +2,11 @@
 
 namespace ReviBank
 {
-    public class Conta
+    public abstract class Conta
     {
-        public string Nome { get; set; }
-        public string NumeroConta { get; private set; }
-        public double Saldo { get; private set; }
+        public abstract string Nome { get; set; }
+        public abstract string NumeroConta { get; protected set; }
+        public abstract double  Saldo { get; protected set; }
 
         public Conta(string nome, string numeroConta)
         {
@@ -19,23 +19,9 @@ namespace ReviBank
             Saldo = saldo;
         }
 
-        public void Depositar(double valor)
-        {
-            Saldo += valor;
-        }
+        public abstract void Depositar(double valor);
 
-        public void Sacar(double valor)
-        {
-            if (valor > Saldo)
-            {
-                Console.WriteLine("Saldo insuficiente para saque.");
-            }
-            else
-            {
-                Console.WriteLine($"O valor de R$ {valor} foi retirado da sua conta");
-                Saldo -= valor + 5.00; 
-            }
-        }
+        public abstract void Sacar(double valor);
 
         public override string ToString()
         {
